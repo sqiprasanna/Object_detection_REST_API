@@ -36,9 +36,9 @@ class MBTIAPIView(APIView):
             filename = fs.save(image.name, image)
             image_url = fs.url(filename)
             image_path = settings.MEDIA_ROOT + filename
-            config_path = 'C:/Users/sai19/OneDrive/Desktop/Intern/Flutura/Rest_api/rest_framework_api/webapp/YOLO/yolov3-spp.cfg'
-            weights_path = 'C:/Users/sai19/OneDrive/Desktop/Intern/Flutura/Rest_api/rest_framework_api/webapp/YOLO/yolov3-spp.weights'
-            classes_path = 'C:/Users/sai19/OneDrive/Desktop/Intern/Flutura/Rest_api/rest_framework_api/webapp/YOLO/coco.names'
+            config_path = './webapp/YOLO/yolov3-spp.cfg'
+            weights_path = './webapp/YOLO/yolov3-spp.weights'
+            classes_path = './webapp/YOLO/coco.names'
             det_obj = Detector(weights_path,config_path,classes_path)
             img,class_id = det_obj.detectObject(image_path)
             cv2.imwrite(os.path.join(settings.MEDIA_ROOT,'detection.jpg'),img)
